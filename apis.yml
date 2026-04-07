@@ -13,10 +13,10 @@ apis:
       - url: ' https://docs.factoryio.com/manual/web-api/'
         type: Documentation
     description: >-
-      The web server in Factory I/O uses conventional HTTP response codes to
-      indicate the success or failure of a request. In general, codes in the 2xx
-      range indicate success, codes in the 4xx range indicate a problem with the
-      request, and codes in the 5xx range indicate an error in Factory I/O. 
+      The web server in Factory I/O uses conventional HTTP response codes to indicate
+      the success or failure of a request. In general, codes in the 2xx range indicate
+      success, codes in the 4xx range indicate a problem with the request, and codes
+      in the 5xx range indicate an error in Factory I/O.
 name: FACTORY I/O
 tags:
   - Software Simulation
@@ -29,14 +29,11 @@ created: '2025-03-01'
 modified: '2026-03-16'
 position: Consumer
 description: >-
-  FACTORY I/O is a software simulation tool that allows users to create and
-  simulate industrial automation systems in a virtual environment. It provides a
-  realistic and interactive platform for training, testing, and troubleshooting
-  automation processes without the need for physical equipment. Users can design
-  their own control systems, program PLCs, and observe the behavior of machines
-  and processes in real-time. FACTORY I/O is widely used in educational
-  institutions, training centers, and manufacturing industries to improve the
-  efficiency and safety of automation systems.
+  FACTORY I/O is a software simulation tool that allows users to create and simulate
+  industrial automation systems in a virtual environment. It provides a realistic
+  and interactive platform for training, testing, and troubleshooting automation processes
+  without the need for physical equipment. Users can design their own control systems,
+  program PLCs, and observe the behavior of machines and processes in real-time.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
