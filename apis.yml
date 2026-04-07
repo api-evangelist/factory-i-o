@@ -5,9 +5,9 @@ apis:
   - aid: factory-i-o:factory-i-o
     name: FACTORY I/O
     tags:
-      - Software Simulation
       - Industrial Automation
       - Simulations
+      - Software Simulation
     humanURL: ' https://docs.factoryio.com/manual/web-api/'
     properties:
       - url: ' https://docs.factoryio.com/manual/web-api/'
@@ -19,9 +19,9 @@ apis:
       in the 5xx range indicate an error in Factory I/O.
 name: FACTORY I/O
 tags:
-  - Software Simulation
   - Industrial Automation
   - Simulations
+  - Software Simulation
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 access: 3rd-Party
