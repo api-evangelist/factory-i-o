@@ -2,13 +2,13 @@
   "repo": "factory-i-o",
   "feeds": [
     {
-      "source": "https://factoryio.com/blog",
-      "feed_url": "",
+      "source": "https://docs.factoryio.com/",
+      "feed_url": "https://docs.factoryio.com/",
       "title": "",
       "saved": 0,
-      "error": "no_feed"
+      "method": "none"
     }
   ],
-  "fetched": "2026-05-17T20:48:52Z",
+  "fetched": "2026-06-01T23:35:02Z",
   "post_count": 0
 }
