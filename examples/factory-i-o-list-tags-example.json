@@ -1,0 +1,64 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/api/tags",
+    "query": "name=*reset*",
+    "headers": {}
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json; charset=utf-8"
+    },
+    "body": [
+      {
+        "name": "FACTORY I/O (Reset)",
+        "id": "01936c60-0201-4d54-aad2-0734eb391d35",
+        "address": 498,
+        "type": "Bit",
+        "kind": "Output",
+        "value": false,
+        "openCircuit": false,
+        "shortCircuit": false,
+        "isForced": false,
+        "forcedValue": false
+      },
+      {
+        "name": "FACTORY I/O (Reset)",
+        "id": "12d66936-6f23-4979-90ee-cb151204d00a",
+        "address": 498,
+        "type": "Bit",
+        "kind": "Input",
+        "value": false,
+        "openCircuit": false,
+        "shortCircuit": false,
+        "isForced": false,
+        "forcedValue": false
+      },
+      {
+        "name": "Reset",
+        "id": "2e59772f-877b-4206-834b-67a4a6e6bdbb",
+        "address": 9,
+        "type": "Bit",
+        "kind": "Input",
+        "value": false,
+        "openCircuit": false,
+        "shortCircuit": false,
+        "isForced": false,
+        "forcedValue": false
+      },
+      {
+        "name": "Reset light",
+        "id": "55a717c5-0bfc-4398-a3b0-f9855cad38e9",
+        "address": 15,
+        "type": "Bit",
+        "kind": "Output",
+        "value": false,
+        "openCircuit": false,
+        "shortCircuit": false,
+        "isForced": false,
+        "forcedValue": false
+      }
+    ]
+  }
+}

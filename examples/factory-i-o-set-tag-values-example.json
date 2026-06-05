@@ -1,0 +1,36 @@
+{
+  "request": {
+    "method": "PUT",
+    "path": "/api/tag/values",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": [
+      {
+        "id": "a32d5732-18aa-4700-a4c7-c00d7cd18f41",
+        "value": true
+      },
+      {
+        "id": "7177772a-0db3-4303-af9b-9bbcdcc14581",
+        "value": false
+      },
+      {
+        "id": "4995ead4-ab3d-4f83-abc6-959524433087",
+        "value": 3.141
+      }
+    ]
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json; charset=utf-8"
+    },
+    "body": [
+      {
+        "id": "7177772a-0db3-4303-af9b-9bbcdcc14581",
+        "code": 406,
+        "error": "Not allowed to set value of an input tag."
+      }
+    ]
+  }
+}

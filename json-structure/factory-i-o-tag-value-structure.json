@@ -1,0 +1,31 @@
+{
+  "name": "TagValueResult",
+  "description": "Result object returned by tag value read and write operations. Follows a partial-success model: the top-level response is always HTTP 200, and per-item failures are embedded using a code + error pattern.",
+  "fields": [
+    {
+      "name": "id",
+      "type": "string (uuid)",
+      "description": "Tag identifier. Present when the operation used ID-based addressing."
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "description": "Tag name. Present when the operation used name-based addressing."
+    },
+    {
+      "name": "value",
+      "type": "boolean | number",
+      "description": "Tag value. Present on successful read or write."
+    },
+    {
+      "name": "code",
+      "type": "integer",
+      "description": "HTTP-like error code for this item. Present only when this specific item failed (e.g., 404 = not found, 406 = not allowed)."
+    },
+    {
+      "name": "error",
+      "type": "string",
+      "description": "Human-readable error description for this item. Present only when code is set."
+    }
+  ]
+}

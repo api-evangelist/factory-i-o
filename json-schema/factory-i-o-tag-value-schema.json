@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api.factoryio.com/schemas/tag-value-result",
+  "title": "TagValueResult",
+  "description": "Result object for a tag value read/write operation. Contains either a value (success) or a code and error (per-item failure).",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Unique identifier for the tag.",
+      "example": "fc6bb6c4-d307-4fdc-bc70-bc3a808c4098"
+    },
+    "name": {
+      "type": "string",
+      "description": "Name of the tag (present when using by-name endpoints).",
+      "example": "Left conveyor"
+    },
+    "value": {
+      "description": "Current tag value (present on success). Boolean for Bit, number for Int/Float.",
+      "oneOf": [
+        { "type": "boolean" },
+        { "type": "number" }
+      ]
+    },
+    "code": {
+      "type": "integer",
+      "description": "HTTP-like error code for this specific item (present on per-item error).",
+      "example": 404
+    },
+    "error": {
+      "type": "string",
+      "description": "Human-readable error message for this specific item (present on per-item error).",
+      "example": "Tag with id '...' not found."
+    }
+  },
+  "required": [],
+  "additionalProperties": false
+}

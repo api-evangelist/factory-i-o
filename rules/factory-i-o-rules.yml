@@ -1,0 +1,65 @@
+formats:
+  - oas3
+
+rules:
+  factory-io-operation-must-have-operationId:
+    message: Every operation must define an operationId for code generation.
+    severity: error
+    given: "$.paths[*][get,put,post,delete,patch]"
+    then:
+      field: operationId
+      function: truthy
+
+  factory-io-operation-must-have-tags:
+    message: Every operation must have at least one tag.
+    severity: warn
+    given: "$.paths[*][get,put,post,delete,patch]"
+    then:
+      field: tags
+      function: truthy
+
+  factory-io-tag-value-arrays-only:
+    message: >-
+      Tag value endpoints accept and return arrays of objects, never a single
+      object. Request and response bodies should be array types.
+    severity: warn
+    given: "$.paths['/api/tag/values'][put].requestBody.content['application/json'].schema"
+    then:
+      field: type
+      function: pattern
+      functionOptions:
+        match: "^array$"
+
+  factory-io-uuid-format-for-tag-ids:
+    message: Tag id fields must use format uuid.
+    severity: warn
+    given: "$.components.schemas.Tag.properties.id"
+    then:
+      field: format
+      function: pattern
+      functionOptions:
+        match: "^uuid$"
+
+  factory-io-partial-success-pattern:
+    message: >-
+      Tag value operations use partial success: HTTP 200 with per-item error
+      objects containing code and error fields. Responses must define a schema
+      that includes both value and code/error properties.
+    severity: hint
+    given: "$.paths['/api/tag/values'][put].responses['200'].content['application/json'].schema"
+    then:
+      field: type
+      function: pattern
+      functionOptions:
+        match: "^array$"
+
+  factory-io-server-must-define-port:
+    message: >-
+      Factory I/O web server always runs on a specific local port. The servers
+      array should define a localhost URL with the default port 7410.
+    severity: warn
+    given: "$.servers[0].url"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^http://localhost"

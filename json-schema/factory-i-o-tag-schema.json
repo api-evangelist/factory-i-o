@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api.factoryio.com/schemas/tag",
+  "title": "Tag",
+  "description": "Object representing a tag in the Factory I/O scene.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Name of the tag.",
+      "example": "Left conveyor"
+    },
+    "id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Unique identifier for the tag.",
+      "example": "b61dc29b-650d-4145-be65-4fea9cffc802"
+    },
+    "address": {
+      "type": "integer",
+      "description": "Tag address used by the controller.",
+      "example": 8
+    },
+    "type": {
+      "type": "string",
+      "description": "Data type of the tag's value.",
+      "enum": ["Bit", "Int", "Float"],
+      "example": "Bit"
+    },
+    "kind": {
+      "type": "string",
+      "description": "Kind of tag from the controller point of view.",
+      "enum": ["Input", "Output"],
+      "example": "Output"
+    },
+    "value": {
+      "description": "Current tag value. Boolean for Bit type, number for Int/Float types.",
+      "oneOf": [
+        { "type": "boolean" },
+        { "type": "number" }
+      ],
+      "example": false
+    },
+    "openCircuit": {
+      "type": "boolean",
+      "description": "Whether the tag has an always-off (open circuit) failure active.",
+      "example": false
+    },
+    "shortCircuit": {
+      "type": "boolean",
+      "description": "Whether the tag has an always-on (short circuit) failure active.",
+      "example": false
+    },
+    "isForced": {
+      "type": "boolean",
+      "description": "Whether the tag value is currently forced.",
+      "example": false
+    },
+    "forcedValue": {
+      "description": "Tag value used when the tag is forced.",
+      "oneOf": [
+        { "type": "boolean" },
+        { "type": "number" }
+      ],
+      "example": false
+    }
+  },
+  "required": ["name", "id", "address", "type", "kind", "value", "openCircuit", "shortCircuit", "isForced", "forcedValue"],
+  "additionalProperties": false
+}

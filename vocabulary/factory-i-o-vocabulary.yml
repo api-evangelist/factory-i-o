@@ -1,0 +1,134 @@
+vocabulary:
+  name: FACTORY I/O Industrial Automation Vocabulary
+  description: >-
+    Terms and concepts used in the Factory I/O simulation platform and its Web
+    API, covering industrial automation, PLC programming, and simulation
+    concepts.
+  version: '1.0'
+  terms:
+    - term: Tag
+      definition: >-
+        A named variable in a Factory I/O scene that maps to a PLC I/O address.
+        Tags represent sensor readings (inputs) or actuator commands (outputs)
+        and carry a typed value (Bit, Int, or Float).
+      tags:
+        - core
+        - simulation
+        - io
+
+    - term: Scene
+      definition: >-
+        A Factory I/O project representing a 3D virtual industrial environment,
+        including conveyors, sensors, actuators, and other manufacturing
+        components. A scene contains all tags for the simulation.
+      tags:
+        - core
+        - simulation
+
+    - term: PLC
+      definition: >-
+        Programmable Logic Controller. An industrial digital computer used to
+        control manufacturing processes. Factory I/O emulates PLC-controlled
+        machinery; tags map to the PLC's input/output address space.
+      tags:
+        - industrial
+        - controller
+
+    - term: Input Tag
+      definition: >-
+        A tag whose value flows from the Factory I/O simulation into the
+        controller. Represents sensor data (e.g., a proximity sensor detecting
+        a part). Input tags cannot be set directly via PUT /api/tag/values.
+      tags:
+        - io
+        - sensor
+
+    - term: Output Tag
+      definition: >-
+        A tag whose value is written by the controller to the Factory I/O
+        simulation. Represents actuator commands (e.g., starting a conveyor
+        motor). Output tags can be written via PUT /api/tag/values.
+      tags:
+        - io
+        - actuator
+
+    - term: Forced Value
+      definition: >-
+        A mechanism for overriding a tag's normal live value with a fixed
+        value. Used for debugging and fault injection. When a tag is forced, its
+        isForced field is true and its value equals its forcedValue.
+      tags:
+        - debugging
+        - testing
+
+    - term: Open Circuit
+      definition: >-
+        A simulated electrical fault where a tag is held permanently at its
+        off/false state, regardless of the simulation or controller commands.
+        Corresponds to the openCircuit field on a Tag object.
+      tags:
+        - fault-injection
+        - testing
+
+    - term: Short Circuit
+      definition: >-
+        A simulated electrical fault where a tag is held permanently at its
+        on/true state, regardless of the simulation or controller commands.
+        Corresponds to the shortCircuit field on a Tag object.
+      tags:
+        - fault-injection
+        - testing
+
+    - term: Bit
+      definition: >-
+        A boolean tag data type representing a single binary value (true/false,
+        on/off). Used for digital I/O signals such as sensor presence outputs
+        and relay controls.
+      tags:
+        - data-type
+        - io
+
+    - term: Int
+      definition: >-
+        An integer tag data type used for counter values, discrete numeric
+        signals, or multi-position actuators.
+      tags:
+        - data-type
+        - io
+
+    - term: Float
+      definition: >-
+        A floating-point tag data type used for analog signals such as conveyor
+        speed, weight measurements, or temperature readings.
+      tags:
+        - data-type
+        - io
+        - analog
+
+    - term: Partial Success Response
+      definition: >-
+        The response pattern used by Factory I/O tag value endpoints, where the
+        HTTP status is always 200 but individual items in the response array may
+        contain a code and error field indicating per-item failure. This allows
+        bulk operations to partially succeed.
+      tags:
+        - api-pattern
+        - error-handling
+
+    - term: Web Server
+      definition: >-
+        The built-in HTTP server in Factory I/O (Ultimate Edition) that exposes
+        the REST API on port 7410 by default. Must be enabled with the console
+        command app.web_server = True.
+      tags:
+        - infrastructure
+        - configuration
+
+    - term: Address
+      definition: >-
+        The integer PLC memory address associated with a tag. Used by the PLC
+        program to reference specific I/O points. Multiple tags can share the
+        same address but differ in kind (Input vs Output).
+      tags:
+        - plc
+        - io

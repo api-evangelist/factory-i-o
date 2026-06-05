@@ -1,0 +1,69 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "factoryio": "https://docs.factoryio.com/vocab#",
+    "iot": "https://www.w3.org/TR/wot-thing-description/#",
+
+    "Tag": "factoryio:Tag",
+    "Scene": "factoryio:Scene",
+
+    "name": "schema:name",
+    "description": "schema:description",
+    "url": "schema:url",
+    "identifier": "schema:identifier",
+
+    "id": {
+      "@id": "schema:identifier",
+      "@type": "@id"
+    },
+    "address": {
+      "@id": "factoryio:address",
+      "@type": "schema:Integer"
+    },
+    "type": {
+      "@id": "factoryio:dataType",
+      "@comment": "Bit | Int | Float"
+    },
+    "kind": {
+      "@id": "factoryio:ioKind",
+      "@comment": "Input | Output"
+    },
+    "value": {
+      "@id": "iot:hasValue"
+    },
+    "openCircuit": {
+      "@id": "factoryio:openCircuit",
+      "@type": "schema:Boolean",
+      "@comment": "Always-off fault injection"
+    },
+    "shortCircuit": {
+      "@id": "factoryio:shortCircuit",
+      "@type": "schema:Boolean",
+      "@comment": "Always-on fault injection"
+    },
+    "isForced": {
+      "@id": "factoryio:isForced",
+      "@type": "schema:Boolean"
+    },
+    "forcedValue": {
+      "@id": "factoryio:forcedValue"
+    },
+
+    "FACTORY_IO": {
+      "@id": "schema:Organization",
+      "schema:name": "FACTORY I/O",
+      "schema:url": "https://factoryio.com",
+      "schema:description": "Industrial automation simulation software by Real Games.",
+      "schema:industry": "Industrial Automation Software",
+      "schema:sameAs": "https://github.com/RealGames"
+    },
+
+    "WebAPI": {
+      "@id": "schema:WebAPI",
+      "schema:documentation": "https://docs.factoryio.com/manual/web-api/",
+      "schema:termsOfService": "https://factoryio.com",
+      "factoryio:defaultPort": "7410",
+      "factoryio:activationCommand": "app.web_server = True"
+    }
+  }
+}

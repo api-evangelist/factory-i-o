@@ -1,0 +1,45 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/api/tag/values",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": [
+      "fc6bb6c4-d307-4fdc-bc70-bc3a808c4098",
+      "b61dc29b-650d-4145-be65-4fea9cffc802",
+      "df43b72e-992a-4936-9d46-32764400b933",
+      "32614ed5-621b-4de5-af97-503d95243ec8",
+      "77740bcd-b3a0-4d5f-a175-90889ecc6cea"
+    ]
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json; charset=utf-8"
+    },
+    "body": [
+      {
+        "id": "fc6bb6c4-d307-4fdc-bc70-bc3a808c4098",
+        "value": false
+      },
+      {
+        "id": "b61dc29b-650d-4145-be65-4fea9cffc802",
+        "value": true
+      },
+      {
+        "id": "df43b72e-992a-4936-9d46-32764400b933",
+        "code": 404,
+        "error": "Tag with id 'df43b72e-992a-4936-9d46-32764400b933' not found."
+      },
+      {
+        "id": "32614ed5-621b-4de5-af97-503d95243ec8",
+        "value": 4
+      },
+      {
+        "id": "77740bcd-b3a0-4d5f-a175-90889ecc6cea",
+        "value": 8.496892
+      }
+    ]
+  }
+}

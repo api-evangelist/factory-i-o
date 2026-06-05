@@ -1,0 +1,56 @@
+{
+  "name": "Tag",
+  "description": "Represents a tag in the Factory I/O simulation scene. Tags correspond to I/O signals mapped to PLC addresses.",
+  "fields": [
+    {
+      "name": "name",
+      "type": "string",
+      "description": "Human-readable name of the tag as defined in the Factory I/O scene."
+    },
+    {
+      "name": "id",
+      "type": "string (uuid)",
+      "description": "Globally unique identifier for the tag. Stable across sessions."
+    },
+    {
+      "name": "address",
+      "type": "integer",
+      "description": "PLC address mapped to this tag."
+    },
+    {
+      "name": "type",
+      "type": "enum: Bit | Int | Float",
+      "description": "Data type of the tag value. Determines valid value range and encoding."
+    },
+    {
+      "name": "kind",
+      "type": "enum: Input | Output",
+      "description": "Direction of the tag from the controller perspective. Input = sensor data read by controller; Output = actuator command written by controller."
+    },
+    {
+      "name": "value",
+      "type": "boolean | number",
+      "description": "Current live value of the tag in the simulation."
+    },
+    {
+      "name": "openCircuit",
+      "type": "boolean",
+      "description": "True if the tag has an always-off (open circuit) fault injected."
+    },
+    {
+      "name": "shortCircuit",
+      "type": "boolean",
+      "description": "True if the tag has an always-on (short circuit) fault injected."
+    },
+    {
+      "name": "isForced",
+      "type": "boolean",
+      "description": "True if the tag value is currently overridden by a forced value."
+    },
+    {
+      "name": "forcedValue",
+      "type": "boolean | number",
+      "description": "The value the tag is held at when isForced is true."
+    }
+  ]
+}
