@@ -39,6 +39,8 @@ apis:
       - type: GitHubOrganization
         url: https://github.com/RealGames
 common:
+  - type: DomainSecurity
+    url: security/factory-i-o-domain-security.yml
   - type: Website
     url: https://factoryio.com
   - type: Documentation
