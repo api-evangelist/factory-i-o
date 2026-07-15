@@ -39,6 +39,8 @@ apis:
       - type: GitHubOrganization
         url: https://github.com/RealGames
 common:
+  - type: AgenticAccess
+    url: agentic-access/factory-i-o-agentic-access.yml
   - type: DomainSecurity
     url: security/factory-i-o-domain-security.yml
   - type: Website
