@@ -1,0 +1,253 @@
+openapi: 3.0.3
+info:
+  title: FACTORY I/O Web Tag Values Tags API
+  description: 'The web server in Factory I/O exposes a REST API for reading and writing simulation tag values from external clients. The web server uses conventional HTTP response codes to indicate success or failure: 2xx for success, 4xx for client errors, and 5xx for errors in Factory I/O. By default the server listens on port 7410. Requires the Ultimate Edition with the web server activated via the app.web_server = True console command.'
+  version: '1.0'
+  contact:
+    url: https://factoryio.com
+  license:
+    name: Commercial
+    url: https://factoryio.com
+servers:
+- url: http://localhost:7410
+  description: Local Factory I/O instance (default port)
+tags:
+- name: Tags
+  description: Operations for listing and querying scene tags
+paths:
+  /api/tags:
+    get:
+      summary: List all tags
+      description: Returns a list of all tags in the scene, with optional filters.
+      operationId: listTags
+      tags:
+      - Tags
+      parameters:
+      - name: name
+        in: query
+        description: Case-insensitive filter on the tag's name. Supports * and ? wildcard characters.
+        required: false
+        schema:
+          type: string
+        example: '*reset*'
+      - name: type
+        in: query
+        description: Filter by data type of the tag's value.
+        required: false
+        schema:
+          type: string
+          enum:
+          - bit
+          - int
+          - float
+      - name: kind
+        in: query
+        description: Filter by kind of tag from the controller point of view.
+        required: false
+        schema:
+          type: string
+          enum:
+          - input
+          - output
+      responses:
+        '200':
+          description: Array of tag objects
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Tag'
+              example:
+              - name: FACTORY I/O (Reset)
+                id: 01936c60-0201-4d54-aad2-0734eb391d35
+                address: 498
+                type: Bit
+                kind: Output
+                value: false
+                openCircuit: false
+                shortCircuit: false
+                isForced: false
+                forcedValue: false
+        4XX:
+          description: Client error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        5XX:
+          description: Factory I/O server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /api/tags/{id}:
+    get:
+      summary: Get tag by ID
+      description: Returns a single tag identified by its unique id.
+      operationId: getTagById
+      tags:
+      - Tags
+      parameters:
+      - name: id
+        in: path
+        description: Unique identifier for the tag.
+        required: true
+        schema:
+          type: string
+          format: uuid
+        example: b61dc29b-650d-4145-be65-4fea9cffc802
+      responses:
+        '200':
+          description: A single tag object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Tag'
+              example:
+                name: Left conveyor
+                id: b61dc29b-650d-4145-be65-4fea9cffc802
+                address: 8
+                type: Bit
+                kind: Output
+                value: true
+                openCircuit: false
+                shortCircuit: true
+                isForced: false
+                forcedValue: false
+        '404':
+          description: Tag not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        4XX:
+          description: Client error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        5XX:
+          description: Factory I/O server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /api/tags/by-name/{name}:
+    get:
+      summary: Get tags by name
+      description: Returns tags whose name matches the given name. May return more than one tag as tag names are not unique in Factory I/O.
+      operationId: getTagsByName
+      tags:
+      - Tags
+      parameters:
+      - name: name
+        in: path
+        description: Name of the tag(s) to find.
+        required: true
+        schema:
+          type: string
+        example: FACTORY I%2FO (Reset)
+      responses:
+        '200':
+          description: Array of matching tag objects
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Tag'
+        4XX:
+          description: Client error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        5XX:
+          description: Factory I/O server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+components:
+  schemas:
+    ErrorResponse:
+      type: object
+      description: Top-level error response from the Factory I/O web server.
+      properties:
+        code:
+          type: integer
+          description: HTTP error code.
+        error:
+          type: string
+          description: Human-readable error message.
+    Tag:
+      type: object
+      description: Object representing a tag in the Factory I/O scene.
+      properties:
+        name:
+          type: string
+          description: Name of the tag.
+          example: Left conveyor
+        id:
+          type: string
+          format: uuid
+          description: Unique identifier for the tag.
+          example: b61dc29b-650d-4145-be65-4fea9cffc802
+        address:
+          type: integer
+          description: Tag address.
+          example: 8
+        type:
+          type: string
+          description: Data type of the tag's value.
+          enum:
+          - Bit
+          - Int
+          - Float
+          example: Bit
+        kind:
+          type: string
+          description: Kind of tag from the controller point of view.
+          enum:
+          - Input
+          - Output
+          example: Output
+        value:
+          description: Current tag value (boolean for Bit, integer for Int, number for Float).
+          oneOf:
+          - type: boolean
+          - type: number
+          example: false
+        openCircuit:
+          type: boolean
+          description: Whether the tag has an always-off failure.
+          example: false
+        shortCircuit:
+          type: boolean
+          description: Whether the tag has an always-on failure.
+          example: false
+        isForced:
+          type: boolean
+          description: Whether the tag is forced.
+          example: false
+        forcedValue:
+          description: Tag value when forced (boolean for Bit, number for Int/Float).
+          oneOf:
+          - type: boolean
+          - type: number
+          example: false
+      required:
+      - name
+      - id
+      - address
+      - type
+      - kind
+      - value
+      - openCircuit
+      - shortCircuit
+      - isForced
+      - forcedValue
+externalDocs:
+  description: Factory I/O Web API Documentation
+  url: https://docs.factoryio.com/manual/web-api/

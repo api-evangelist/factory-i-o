@@ -1,0 +1,252 @@
+openapi: 3.0.3
+info:
+  title: FACTORY I/O Web Tag Values Tag Values by Name API
+  description: 'The web server in Factory I/O exposes a REST API for reading and writing simulation tag values from external clients. The web server uses conventional HTTP response codes to indicate success or failure: 2xx for success, 4xx for client errors, and 5xx for errors in Factory I/O. By default the server listens on port 7410. Requires the Ultimate Edition with the web server activated via the app.web_server = True console command.'
+  version: '1.0'
+  contact:
+    url: https://factoryio.com
+  license:
+    name: Commercial
+    url: https://factoryio.com
+servers:
+- url: http://localhost:7410
+  description: Local Factory I/O instance (default port)
+tags:
+- name: Tag Values by Name
+  description: Operations for reading and writing tag values by name
+paths:
+  /api/tag/values/by-name:
+    get:
+      summary: Get tag values by name
+      description: Get the values of tags in the scene identified by name. A name might return more than one tag as tag names are not unique in Factory I/O. When the request body is not set, returns the values of all tags.
+      operationId: getTagValuesByName
+      tags:
+      - Tag Values by Name
+      requestBody:
+        description: Array of tag names. When omitted, returns all tag values.
+        required: false
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: string
+            example:
+            - At left entry
+            - Left conveyor
+            - Left count
+      responses:
+        '200':
+          description: Array of tag value results (may include per-item errors)
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TagValueByNameResult'
+              example:
+              - name: At left entry
+                value: false
+              - name: Left conveyor
+                value: true
+              - name: Name of non-existing tag
+                code: 404
+                error: Tag named 'Name of non-existing tag' not found.
+        4XX:
+          description: Client error
+        5XX:
+          description: Factory I/O server error
+    put:
+      summary: Set tag values by name
+      description: Set the value of tags in the scene using the name to identify tags.
+      operationId: setTagValuesByName
+      tags:
+      - Tag Values by Name
+      requestBody:
+        description: Array of tag value objects with name and value.
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/TagValueByNameInput'
+            example:
+            - name: Front conveyor
+              value: true
+            - name: Entry conveyor (V)
+              value: 3.141
+      responses:
+        '200':
+          description: Array of per-item results (errors only for failed items)
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TagValueByNameResult'
+        4XX:
+          description: Client error
+        5XX:
+          description: Factory I/O server error
+  /api/tag/values-force/by-name:
+    put:
+      summary: Set forced tag values by name
+      description: Set the forced value of tags in the scene using the name to identify tags.
+      operationId: setTagValuesForceByName
+      tags:
+      - Tag Values by Name
+      requestBody:
+        description: Array of tag value objects with name and value.
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/TagValueByNameInput'
+      responses:
+        '200':
+          description: Array of per-item results (errors only for failed items)
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TagValueByNameResult'
+        4XX:
+          description: Client error
+        5XX:
+          description: Factory I/O server error
+  /api/tag/values-release/by-name:
+    put:
+      summary: Release forced tag values by name
+      description: Release forced value of tags in the scene using the name to identify tags.
+      operationId: setTagValuesReleaseByName
+      tags:
+      - Tag Values by Name
+      requestBody:
+        description: Array of tag names to release.
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: string
+            example:
+            - Front conveyor
+            - At scale entry
+      responses:
+        '200':
+          description: Array of per-item results (errors only for failed items)
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TagValueByNameResult'
+        4XX:
+          description: Client error
+        5XX:
+          description: Factory I/O server error
+  /api/tag/values-alwaysoff/by-name:
+    put:
+      summary: Set Always Off tag values by name
+      description: Set the Always Off value of tags in the scene using the name to identify tags.
+      operationId: setTagValuesAlwaysOffByName
+      tags:
+      - Tag Values by Name
+      requestBody:
+        description: Array of tag value objects with name and value.
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/TagValueByNameInput'
+      responses:
+        '200':
+          description: Array of per-item results (errors only for failed items)
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TagValueByNameResult'
+        4XX:
+          description: Client error
+        5XX:
+          description: Factory I/O server error
+  /api/tag/values-alwayson/by-name:
+    put:
+      summary: Set Always On tag values by name
+      description: Set the Always On value of tags in the scene using the name to identify tags.
+      operationId: setTagValuesAlwaysOnByName
+      tags:
+      - Tag Values by Name
+      requestBody:
+        description: Array of tag value objects with name and value.
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/TagValueByNameInput'
+      responses:
+        '200':
+          description: Array of per-item results (errors only for failed items)
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TagValueByNameResult'
+        4XX:
+          description: Client error
+        5XX:
+          description: Factory I/O server error
+components:
+  schemas:
+    TagValueByNameInput:
+      type: object
+      description: Input object for setting a tag value, identified by name.
+      properties:
+        name:
+          type: string
+          description: Name of the tag.
+          example: Front conveyor
+        value:
+          description: Value to set (boolean for Bit, integer for Int, number for Float).
+          oneOf:
+          - type: boolean
+          - type: number
+      required:
+      - name
+      - value
+    TagValueByNameResult:
+      type: object
+      description: Result for a single tag value operation, identified by name.
+      properties:
+        name:
+          type: string
+          description: Name of the tag.
+        value:
+          description: Current tag value (present on success).
+          oneOf:
+          - type: boolean
+          - type: number
+        code:
+          type: integer
+          description: HTTP-like error code (present on per-item error).
+          example: 406
+        error:
+          type: string
+          description: Error message (present on per-item error).
+      required:
+      - name
+externalDocs:
+  description: Factory I/O Web API Documentation
+  url: https://docs.factoryio.com/manual/web-api/
