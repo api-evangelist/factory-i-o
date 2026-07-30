@@ -8,7 +8,19 @@ description: >-
   Users can design their own control systems, program PLCs, and observe the
   behavior of machines and processes in real-time.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Freemium
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/factory-i-o.png
 tags:
   - Industrial Automation
   - Simulations
@@ -21,23 +33,49 @@ position: Consumer
 access: 3rd-Party
 specificationVersion: '0.19'
 apis:
-  - aid: factory-i-o:factory-i-o
-    name: FACTORY I/O Web API
-    description: >-
-      The web server in Factory I/O exposes a REST API for reading and writing
-      simulation values from external clients. The web server uses conventional
-      HTTP response codes to indicate success or failure: 2xx for success, 4xx
-      for client errors, and 5xx for errors in Factory I/O.
-    humanURL: https://docs.factoryio.com/manual/web-api/
-    tags:
-      - Industrial Automation
-      - Simulations
-      - Software Simulation
-    properties:
-      - type: Documentation
-        url: https://docs.factoryio.com/manual/web-api/
-      - type: GitHubOrganization
-        url: https://github.com/RealGames
+- aid: factory-i-o:factory-i-o
+  name: FACTORY I/O Web API
+  description: >-
+    The web server in Factory I/O exposes a REST API for reading and writing simulation values from external
+    clients. The web server uses conventional HTTP response codes to indicate success or failure: 2xx
+    for success, 4xx for client errors, and 5xx for errors in Factory I/O.
+  humanURL: https://docs.factoryio.com/manual/web-api/
+  tags:
+  - Industrial Automation
+  - Simulations
+  - Software Simulation
+  properties:
+  - type: Documentation
+    url: https://docs.factoryio.com/manual/web-api/
+  - type: GitHubOrganization
+    url: https://github.com/RealGames
+- aid: factory-i-o:factory-i-o-tag-values-api
+  name: FACTORY I/O Tag Values API
+  description: Operations for reading and writing tag values by ID
+  humanURL: https://docs.factoryio.com/manual/web-api/
+  tags:
+  - Tag Values
+  properties:
+  - type: OpenAPI
+    url: openapi/factory-i-o-tag-values-api-openapi.yml
+- aid: factory-i-o:factory-i-o-tag-values-by-name-api
+  name: FACTORY I/O Tag Values by Name API
+  description: Operations for reading and writing tag values by name
+  humanURL: https://docs.factoryio.com/manual/web-api/
+  tags:
+  - Tag Values by Name
+  properties:
+  - type: OpenAPI
+    url: openapi/factory-i-o-tag-values-by-name-api-openapi.yml
+- aid: factory-i-o:factory-i-o-tags-api
+  name: FACTORY I/O Tags API
+  description: Operations for listing and querying scene tags
+  humanURL: https://docs.factoryio.com/manual/web-api/
+  tags:
+  - Tags
+  properties:
+  - type: OpenAPI
+    url: openapi/factory-i-o-tags-api-openapi.yml
 common:
   - type: AgenticAccess
     url: agentic-access/factory-i-o-agentic-access.yml
