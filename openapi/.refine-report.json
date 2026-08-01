@@ -1,0 +1,18 @@
+{
+  "provider": "factory-i-o",
+  "sources": [
+    "factory-i-o-tag-values-api-openapi.yml",
+    "factory-i-o-tag-values-by-name-api-openapi.yml",
+    "factory-i-o-tags-api-openapi.yml"
+  ],
+  "outputs": [
+    "factory-i-o-tag-values-api-openapi.yml",
+    "factory-i-o-tag-values-by-name-api-openapi.yml",
+    "factory-i-o-tags-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
