@@ -1,0 +1,1094 @@
+{
+  "item": [
+    {
+      "id": "9c3cd286-8b4e-4c26-a6eb-dbac5e8a5ba0",
+      "name": "Tag Values",
+      "description": {
+        "content": "Operations for reading and writing tag values by ID",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3b6709a2-5229-4eed-848f-454097d4e6c0",
+          "name": "Get tag values by ID",
+          "request": {
+            "name": "Get tag values by ID",
+            "description": {
+              "content": "Get the values of selected tags identified by id. When the request body is not set, returns the values of all tags in the scene.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "tag",
+                "values"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  \"<uuid>\",\n  \"<uuid>\"\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "62a3b9ff-2ae3-4c0a-b4a4-8c06ff9ae608",
+              "name": "Array of tag value results (may include per-item errors)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "tag",
+                    "values"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"fc6bb6c4-d307-4fdc-bc70-bc3a808c4098\",\n  \"b61dc29b-650d-4145-be65-4fea9cffc802\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"fc6bb6c4-d307-4fdc-bc70-bc3a808c4098\",\n    \"value\": false\n  },\n  {\n    \"id\": \"b61dc29b-650d-4145-be65-4fea9cffc802\",\n    \"value\": true\n  },\n  {\n    \"id\": \"df43b72e-992a-4936-9d46-32764400b933\",\n    \"code\": 404,\n    \"error\": \"Tag with id 'df43b72e-992a-4936-9d46-32764400b933' not found.\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4c5b0b5a-2e60-4b83-aae8-cf8b435557f5",
+              "name": "Client error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "tag",
+                    "values"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"fc6bb6c4-d307-4fdc-bc70-bc3a808c4098\",\n  \"b61dc29b-650d-4145-be65-4fea9cffc802\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6556,\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9e6ba61e-07f2-4eb0-afaa-6794b7cc82b6",
+              "name": "Factory I/O server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "tag",
+                    "values"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"fc6bb6c4-d307-4fdc-bc70-bc3a808c4098\",\n  \"b61dc29b-650d-4145-be65-4fea9cffc802\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6556,\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9d3ed336-6f6d-4ac0-b5d2-5327808d4cc7",
+          "name": "Set tag values by ID",
+          "request": {
+            "name": "Set tag values by ID",
+            "description": {
+              "content": "Set the value of tags in the scene identified by id.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "tag",
+                "values"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"id\": \"<uuid>\",\n    \"value\": \"<boolean>\"\n  },\n  {\n    \"id\": \"<uuid>\",\n    \"value\": \"<boolean>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "82f4b0a4-356a-4d95-8f3a-989da3b7772f",
+              "name": "Array of per-item results (errors only for failed items)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "tag",
+                    "values"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"id\": \"a32d5732-18aa-4700-a4c7-c00d7cd18f41\",\n    \"value\": true\n  },\n  {\n    \"id\": \"4995ead4-ab3d-4f83-abc6-959524433087\",\n    \"value\": 3.141\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"29aa5f71-a1ac-573a-678d-6d888ba0e0bc\",\n    \"value\": true,\n    \"code\": 404,\n    \"error\": \"Tag with id '...' not found.\"\n  },\n  {\n    \"id\": \"eaf7f32d-7509-da22-469c-5d20dcc5994a\",\n    \"value\": true,\n    \"code\": 404,\n    \"error\": \"Tag with id '...' not found.\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c454d01c-40ad-4b1f-ab31-d1febc1c63e8",
+              "name": "Client error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "tag",
+                    "values"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"id\": \"a32d5732-18aa-4700-a4c7-c00d7cd18f41\",\n    \"value\": true\n  },\n  {\n    \"id\": \"4995ead4-ab3d-4f83-abc6-959524433087\",\n    \"value\": 3.141\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6556,\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d73d0040-d853-42be-b63a-d3f7ccf4f409",
+              "name": "Factory I/O server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "tag",
+                    "values"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"id\": \"a32d5732-18aa-4700-a4c7-c00d7cd18f41\",\n    \"value\": true\n  },\n  {\n    \"id\": \"4995ead4-ab3d-4f83-abc6-959524433087\",\n    \"value\": 3.141\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6556,\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "74c40de8-054e-46bc-a114-f59bd7ef1745",
+          "name": "Set forced tag values by ID",
+          "request": {
+            "name": "Set forced tag values by ID",
+            "description": {
+              "content": "Set the forced value of tags in the scene identified by id.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "tag",
+                "values-force"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"id\": \"<uuid>\",\n    \"value\": \"<boolean>\"\n  },\n  {\n    \"id\": \"<uuid>\",\n    \"value\": \"<boolean>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f4f5769f-b81d-409a-a43a-7e78f741027e",
+              "name": "Array of per-item results (errors only for failed items)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "tag",
+                    "values-force"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"id\": \"a32d5732-18aa-4700-a4c7-c00d7cd18f41\",\n    \"value\": \"<boolean>\"\n  },\n  {\n    \"id\": \"a32d5732-18aa-4700-a4c7-c00d7cd18f41\",\n    \"value\": \"<boolean>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"29aa5f71-a1ac-573a-678d-6d888ba0e0bc\",\n    \"value\": true,\n    \"code\": 404,\n    \"error\": \"Tag with id '...' not found.\"\n  },\n  {\n    \"id\": \"eaf7f32d-7509-da22-469c-5d20dcc5994a\",\n    \"value\": true,\n    \"code\": 404,\n    \"error\": \"Tag with id '...' not found.\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "663e23c3-0780-48b3-9bd1-81ace208ae06",
+              "name": "Client error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "tag",
+                    "values-force"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"id\": \"a32d5732-18aa-4700-a4c7-c00d7cd18f41\",\n    \"value\": \"<boolean>\"\n  },\n  {\n    \"id\": \"a32d5732-18aa-4700-a4c7-c00d7cd18f41\",\n    \"value\": \"<boolean>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bec8baad-2a69-4ada-bdae-71298e7886e2",
+              "name": "Factory I/O server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "tag",
+                    "values-force"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"id\": \"a32d5732-18aa-4700-a4c7-c00d7cd18f41\",\n    \"value\": \"<boolean>\"\n  },\n  {\n    \"id\": \"a32d5732-18aa-4700-a4c7-c00d7cd18f41\",\n    \"value\": \"<boolean>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fe840c22-17ae-4749-a257-34e90a2a59e4",
+          "name": "Release forced tag values by ID",
+          "request": {
+            "name": "Release forced tag values by ID",
+            "description": {
+              "content": "Release the forced value of tags in the scene identified by id.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "tag",
+                "values-release"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  \"<uuid>\",\n  \"<uuid>\"\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f0cca8f2-5492-4645-8efd-fef6bb1cd89a",
+              "name": "Array of per-item results (errors only for failed items)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "tag",
+                    "values-release"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"a32d5732-18aa-4700-a4c7-c00d7cd18f41\",\n  \"7177772a-0db3-4303-af9b-9bbcdcc14581\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"29aa5f71-a1ac-573a-678d-6d888ba0e0bc\",\n    \"value\": true,\n    \"code\": 404,\n    \"error\": \"Tag with id '...' not found.\"\n  },\n  {\n    \"id\": \"eaf7f32d-7509-da22-469c-5d20dcc5994a\",\n    \"value\": true,\n    \"code\": 404,\n    \"error\": \"Tag with id '...' not found.\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "840a8de6-5898-49a1-a9f2-4267962baade",
+              "name": "Client error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "tag",
+                    "values-release"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"a32d5732-18aa-4700-a4c7-c00d7cd18f41\",\n  \"7177772a-0db3-4303-af9b-9bbcdcc14581\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "99b10846-75bc-4a2c-b262-3610ef76a193",
+              "name": "Factory I/O server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "tag",
+                    "values-release"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"a32d5732-18aa-4700-a4c7-c00d7cd18f41\",\n  \"7177772a-0db3-4303-af9b-9bbcdcc14581\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "225ff64d-d6c4-455f-a011-2d8bf2737f4d",
+          "name": "Set Always Off tag values by ID",
+          "request": {
+            "name": "Set Always Off tag values by ID",
+            "description": {
+              "content": "Set the Always Off (open circuit) failure value of tags in the scene.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "tag",
+                "values-alwaysoff"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"id\": \"<uuid>\",\n    \"value\": \"<boolean>\"\n  },\n  {\n    \"id\": \"<uuid>\",\n    \"value\": \"<boolean>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2da834b5-88e6-4007-b345-fe8a39d18a2d",
+              "name": "Array of per-item results (errors only for failed items)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "tag",
+                    "values-alwaysoff"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"id\": \"a32d5732-18aa-4700-a4c7-c00d7cd18f41\",\n    \"value\": \"<boolean>\"\n  },\n  {\n    \"id\": \"a32d5732-18aa-4700-a4c7-c00d7cd18f41\",\n    \"value\": \"<boolean>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"29aa5f71-a1ac-573a-678d-6d888ba0e0bc\",\n    \"value\": true,\n    \"code\": 404,\n    \"error\": \"Tag with id '...' not found.\"\n  },\n  {\n    \"id\": \"eaf7f32d-7509-da22-469c-5d20dcc5994a\",\n    \"value\": true,\n    \"code\": 404,\n    \"error\": \"Tag with id '...' not found.\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0b65d687-5044-4f0a-99b7-d6ddeb4429a6",
+              "name": "Client error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "tag",
+                    "values-alwaysoff"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"id\": \"a32d5732-18aa-4700-a4c7-c00d7cd18f41\",\n    \"value\": \"<boolean>\"\n  },\n  {\n    \"id\": \"a32d5732-18aa-4700-a4c7-c00d7cd18f41\",\n    \"value\": \"<boolean>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b6c35d4f-ea24-48cc-a11b-dcc6046846cc",
+              "name": "Factory I/O server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "tag",
+                    "values-alwaysoff"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"id\": \"a32d5732-18aa-4700-a4c7-c00d7cd18f41\",\n    \"value\": \"<boolean>\"\n  },\n  {\n    \"id\": \"a32d5732-18aa-4700-a4c7-c00d7cd18f41\",\n    \"value\": \"<boolean>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "073faca6-90d4-47e2-a081-701d61365c47",
+          "name": "Set Always On tag values by ID",
+          "request": {
+            "name": "Set Always On tag values by ID",
+            "description": {
+              "content": "Set the Always On (short circuit) failure value of tags in the scene.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "tag",
+                "values-alwayson"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"id\": \"<uuid>\",\n    \"value\": \"<boolean>\"\n  },\n  {\n    \"id\": \"<uuid>\",\n    \"value\": \"<boolean>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7af6d731-5156-417e-ad82-9a950bf40fb0",
+              "name": "Array of per-item results (errors only for failed items)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "tag",
+                    "values-alwayson"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"id\": \"a32d5732-18aa-4700-a4c7-c00d7cd18f41\",\n    \"value\": \"<boolean>\"\n  },\n  {\n    \"id\": \"a32d5732-18aa-4700-a4c7-c00d7cd18f41\",\n    \"value\": \"<boolean>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"29aa5f71-a1ac-573a-678d-6d888ba0e0bc\",\n    \"value\": true,\n    \"code\": 404,\n    \"error\": \"Tag with id '...' not found.\"\n  },\n  {\n    \"id\": \"eaf7f32d-7509-da22-469c-5d20dcc5994a\",\n    \"value\": true,\n    \"code\": 404,\n    \"error\": \"Tag with id '...' not found.\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6e707f71-48f9-4fe8-99d8-d5d4e7221683",
+              "name": "Client error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "tag",
+                    "values-alwayson"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"id\": \"a32d5732-18aa-4700-a4c7-c00d7cd18f41\",\n    \"value\": \"<boolean>\"\n  },\n  {\n    \"id\": \"a32d5732-18aa-4700-a4c7-c00d7cd18f41\",\n    \"value\": \"<boolean>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5039738a-a6c3-45d0-ae76-cbf957a0c49f",
+              "name": "Factory I/O server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "tag",
+                    "values-alwayson"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"id\": \"a32d5732-18aa-4700-a4c7-c00d7cd18f41\",\n    \"value\": \"<boolean>\"\n  },\n  {\n    \"id\": \"a32d5732-18aa-4700-a4c7-c00d7cd18f41\",\n    \"value\": \"<boolean>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:7410",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "8891b983-0cc7-417d-8779-32f87172e1e6",
+    "name": "FACTORY I/O Web Tag Values API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The web server in Factory I/O exposes a REST API for reading and writing simulation tag values from external clients. The web server uses conventional HTTP response codes to indicate success or failure: 2xx for success, 4xx for client errors, and 5xx for errors in Factory I/O. By default the server listens on port 7410. Requires the Ultimate Edition with the web server activated via the app.web_server = True console command.",
+      "type": "text/plain"
+    }
+  }
+}

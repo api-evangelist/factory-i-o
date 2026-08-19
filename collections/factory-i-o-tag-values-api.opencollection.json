@@ -1,0 +1,108 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "FACTORY I/O Web Tag Values API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Tag Values",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get tag values by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:7410/api/tag/values",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Get the values of selected tags identified by id. When the request body is not set, returns the values of all tags in the scene."
+        },
+        {
+          "info": {
+            "name": "Set tag values by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://localhost:7410/api/tag/values",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Set the value of tags in the scene identified by id."
+        },
+        {
+          "info": {
+            "name": "Set forced tag values by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://localhost:7410/api/tag/values-force",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Set the forced value of tags in the scene identified by id."
+        },
+        {
+          "info": {
+            "name": "Release forced tag values by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://localhost:7410/api/tag/values-release",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Release the forced value of tags in the scene identified by id."
+        },
+        {
+          "info": {
+            "name": "Set Always Off tag values by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://localhost:7410/api/tag/values-alwaysoff",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Set the Always Off (open circuit) failure value of tags in the scene."
+        },
+        {
+          "info": {
+            "name": "Set Always On tag values by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://localhost:7410/api/tag/values-alwayson",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Set the Always On (short circuit) failure value of tags in the scene."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

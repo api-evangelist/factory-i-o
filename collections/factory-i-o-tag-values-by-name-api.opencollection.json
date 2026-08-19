@@ -1,0 +1,108 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "FACTORY I/O Web Tag Values Tag Values by Name API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Tag Values by Name",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get tag values by name",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:7410/api/tag/values/by-name",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Get the values of tags in the scene identified by name. A name might return more than one tag as tag names are not unique in Factory I/O. When the request body is not set, returns the values of all tags."
+        },
+        {
+          "info": {
+            "name": "Set tag values by name",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://localhost:7410/api/tag/values/by-name",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Set the value of tags in the scene using the name to identify tags."
+        },
+        {
+          "info": {
+            "name": "Set forced tag values by name",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://localhost:7410/api/tag/values-force/by-name",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Set the forced value of tags in the scene using the name to identify tags."
+        },
+        {
+          "info": {
+            "name": "Release forced tag values by name",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://localhost:7410/api/tag/values-release/by-name",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Release forced value of tags in the scene using the name to identify tags."
+        },
+        {
+          "info": {
+            "name": "Set Always Off tag values by name",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://localhost:7410/api/tag/values-alwaysoff/by-name",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Set the Always Off value of tags in the scene using the name to identify tags."
+        },
+        {
+          "info": {
+            "name": "Set Always On tag values by name",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://localhost:7410/api/tag/values-alwayson/by-name",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Set the Always On value of tags in the scene using the name to identify tags."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

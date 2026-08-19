@@ -1,0 +1,1094 @@
+{
+  "item": [
+    {
+      "id": "918b3555-f0eb-4654-bf0c-36886ba70a4a",
+      "name": "Tag Values by Name",
+      "description": {
+        "content": "Operations for reading and writing tag values by name",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e94e9461-77a8-4bc7-8f1f-bac7aec23854",
+          "name": "Get tag values by name",
+          "request": {
+            "name": "Get tag values by name",
+            "description": {
+              "content": "Get the values of tags in the scene identified by name. A name might return more than one tag as tag names are not unique in Factory I/O. When the request body is not set, returns the values of all tags.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "tag",
+                "values",
+                "by-name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  \"<string>\",\n  \"<string>\"\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d5cdc591-45b4-40f1-a399-0be5c4fff0ce",
+              "name": "Array of tag value results (may include per-item errors)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "tag",
+                    "values",
+                    "by-name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"At left entry\",\n  \"Left conveyor\",\n  \"Left count\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"name\": \"At left entry\",\n    \"value\": false\n  },\n  {\n    \"name\": \"Left conveyor\",\n    \"value\": true\n  },\n  {\n    \"name\": \"Name of non-existing tag\",\n    \"code\": 404,\n    \"error\": \"Tag named 'Name of non-existing tag' not found.\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e27d4f95-06df-4722-8967-1080dd883c7d",
+              "name": "Client error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "tag",
+                    "values",
+                    "by-name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"At left entry\",\n  \"Left conveyor\",\n  \"Left count\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1b4955ef-1d29-4e55-86d5-d0ab950dee88",
+              "name": "Factory I/O server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "tag",
+                    "values",
+                    "by-name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"At left entry\",\n  \"Left conveyor\",\n  \"Left count\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d10c660b-fb13-47d7-ad69-d6c9e36e9048",
+          "name": "Set tag values by name",
+          "request": {
+            "name": "Set tag values by name",
+            "description": {
+              "content": "Set the value of tags in the scene using the name to identify tags.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "tag",
+                "values",
+                "by-name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"name\": \"<string>\",\n    \"value\": \"<boolean>\"\n  },\n  {\n    \"name\": \"<string>\",\n    \"value\": \"<boolean>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a6315755-53fb-40ea-bf93-6a3688cc7ea1",
+              "name": "Array of per-item results (errors only for failed items)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "tag",
+                    "values",
+                    "by-name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"name\": \"Front conveyor\",\n    \"value\": true\n  },\n  {\n    \"name\": \"Entry conveyor (V)\",\n    \"value\": 3.141\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"name\": \"string\",\n    \"value\": true,\n    \"code\": 406,\n    \"error\": \"string\"\n  },\n  {\n    \"name\": \"string\",\n    \"value\": false,\n    \"code\": 406,\n    \"error\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "77950115-d9e1-47d4-b4dc-d61fca907eb2",
+              "name": "Client error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "tag",
+                    "values",
+                    "by-name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"name\": \"Front conveyor\",\n    \"value\": true\n  },\n  {\n    \"name\": \"Entry conveyor (V)\",\n    \"value\": 3.141\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c3d236f3-94ed-4a92-b5ca-3ec885fa2c10",
+              "name": "Factory I/O server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "tag",
+                    "values",
+                    "by-name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"name\": \"Front conveyor\",\n    \"value\": true\n  },\n  {\n    \"name\": \"Entry conveyor (V)\",\n    \"value\": 3.141\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0e7202ad-ef7b-48c0-9162-132920f489d5",
+          "name": "Set forced tag values by name",
+          "request": {
+            "name": "Set forced tag values by name",
+            "description": {
+              "content": "Set the forced value of tags in the scene using the name to identify tags.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "tag",
+                "values-force",
+                "by-name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"name\": \"<string>\",\n    \"value\": \"<boolean>\"\n  },\n  {\n    \"name\": \"<string>\",\n    \"value\": \"<boolean>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "51fd6e49-8079-4585-b953-95b07d4b501d",
+              "name": "Array of per-item results (errors only for failed items)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "tag",
+                    "values-force",
+                    "by-name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"name\": \"Front conveyor\",\n    \"value\": \"<boolean>\"\n  },\n  {\n    \"name\": \"Front conveyor\",\n    \"value\": \"<boolean>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"name\": \"string\",\n    \"value\": true,\n    \"code\": 406,\n    \"error\": \"string\"\n  },\n  {\n    \"name\": \"string\",\n    \"value\": false,\n    \"code\": 406,\n    \"error\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7d3a209b-ce30-4fc5-a1dc-3092b5498dec",
+              "name": "Client error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "tag",
+                    "values-force",
+                    "by-name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"name\": \"Front conveyor\",\n    \"value\": \"<boolean>\"\n  },\n  {\n    \"name\": \"Front conveyor\",\n    \"value\": \"<boolean>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "17fb4a97-b686-4ac9-a462-2f52960246b4",
+              "name": "Factory I/O server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "tag",
+                    "values-force",
+                    "by-name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"name\": \"Front conveyor\",\n    \"value\": \"<boolean>\"\n  },\n  {\n    \"name\": \"Front conveyor\",\n    \"value\": \"<boolean>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a48df866-d69a-449e-9c75-12de4a76a9ae",
+          "name": "Release forced tag values by name",
+          "request": {
+            "name": "Release forced tag values by name",
+            "description": {
+              "content": "Release forced value of tags in the scene using the name to identify tags.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "tag",
+                "values-release",
+                "by-name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  \"<string>\",\n  \"<string>\"\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "03a2f4da-c389-4853-a443-edf1dfeb7f3a",
+              "name": "Array of per-item results (errors only for failed items)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "tag",
+                    "values-release",
+                    "by-name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"Front conveyor\",\n  \"At scale entry\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"name\": \"string\",\n    \"value\": true,\n    \"code\": 406,\n    \"error\": \"string\"\n  },\n  {\n    \"name\": \"string\",\n    \"value\": false,\n    \"code\": 406,\n    \"error\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c361c778-0a03-4d0e-bc61-b68df14b8498",
+              "name": "Client error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "tag",
+                    "values-release",
+                    "by-name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"Front conveyor\",\n  \"At scale entry\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "df461828-e58c-4dd5-aa84-40e6781b8b1c",
+              "name": "Factory I/O server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "tag",
+                    "values-release",
+                    "by-name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"Front conveyor\",\n  \"At scale entry\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "12bdcfaf-fe11-43e3-8840-a5ac0c4331a0",
+          "name": "Set Always Off tag values by name",
+          "request": {
+            "name": "Set Always Off tag values by name",
+            "description": {
+              "content": "Set the Always Off value of tags in the scene using the name to identify tags.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "tag",
+                "values-alwaysoff",
+                "by-name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"name\": \"<string>\",\n    \"value\": \"<boolean>\"\n  },\n  {\n    \"name\": \"<string>\",\n    \"value\": \"<boolean>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c78b3868-f25c-4692-83f3-291ee58e81ab",
+              "name": "Array of per-item results (errors only for failed items)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "tag",
+                    "values-alwaysoff",
+                    "by-name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"name\": \"Front conveyor\",\n    \"value\": \"<boolean>\"\n  },\n  {\n    \"name\": \"Front conveyor\",\n    \"value\": \"<boolean>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"name\": \"string\",\n    \"value\": true,\n    \"code\": 406,\n    \"error\": \"string\"\n  },\n  {\n    \"name\": \"string\",\n    \"value\": false,\n    \"code\": 406,\n    \"error\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0eef0efa-afbf-44c3-8fdf-67a571c54e38",
+              "name": "Client error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "tag",
+                    "values-alwaysoff",
+                    "by-name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"name\": \"Front conveyor\",\n    \"value\": \"<boolean>\"\n  },\n  {\n    \"name\": \"Front conveyor\",\n    \"value\": \"<boolean>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "903baabe-a294-4f58-aec2-07fccf5a0934",
+              "name": "Factory I/O server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "tag",
+                    "values-alwaysoff",
+                    "by-name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"name\": \"Front conveyor\",\n    \"value\": \"<boolean>\"\n  },\n  {\n    \"name\": \"Front conveyor\",\n    \"value\": \"<boolean>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9560dd1d-f087-4cf5-acd6-2c7784f699a1",
+          "name": "Set Always On tag values by name",
+          "request": {
+            "name": "Set Always On tag values by name",
+            "description": {
+              "content": "Set the Always On value of tags in the scene using the name to identify tags.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "tag",
+                "values-alwayson",
+                "by-name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"name\": \"<string>\",\n    \"value\": \"<boolean>\"\n  },\n  {\n    \"name\": \"<string>\",\n    \"value\": \"<boolean>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fbd7ab0b-6fcb-40f2-a8c3-be55396487b1",
+              "name": "Array of per-item results (errors only for failed items)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "tag",
+                    "values-alwayson",
+                    "by-name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"name\": \"Front conveyor\",\n    \"value\": \"<boolean>\"\n  },\n  {\n    \"name\": \"Front conveyor\",\n    \"value\": \"<boolean>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"name\": \"string\",\n    \"value\": true,\n    \"code\": 406,\n    \"error\": \"string\"\n  },\n  {\n    \"name\": \"string\",\n    \"value\": false,\n    \"code\": 406,\n    \"error\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f73267ee-081e-4c60-a79d-3e5a567b4fec",
+              "name": "Client error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "tag",
+                    "values-alwayson",
+                    "by-name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"name\": \"Front conveyor\",\n    \"value\": \"<boolean>\"\n  },\n  {\n    \"name\": \"Front conveyor\",\n    \"value\": \"<boolean>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "01167c53-a0a4-4929-b392-372184ed9cbc",
+              "name": "Factory I/O server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "tag",
+                    "values-alwayson",
+                    "by-name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"name\": \"Front conveyor\",\n    \"value\": \"<boolean>\"\n  },\n  {\n    \"name\": \"Front conveyor\",\n    \"value\": \"<boolean>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:7410",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "62ae5725-25d1-43e1-97ee-b7bf0dc00ce4",
+    "name": "FACTORY I/O Web Tag Values Tag Values by Name API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The web server in Factory I/O exposes a REST API for reading and writing simulation tag values from external clients. The web server uses conventional HTTP response codes to indicate success or failure: 2xx for success, 4xx for client errors, and 5xx for errors in Factory I/O. By default the server listens on port 7410. Requires the Ultimate Edition with the web server activated via the app.web_server = True console command.",
+      "type": "text/plain"
+    }
+  }
+}
