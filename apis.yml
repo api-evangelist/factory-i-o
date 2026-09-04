@@ -40,7 +40,7 @@ url: >-
   https://raw.githubusercontent.com/api-evangelist/factory-i-o/refs/heads/main/apis.yml
 created: '2025-03-01'
 modified: '2026-04-28'
-position: Consumer
+position: Consuming
 access: 3rd-Party
 specificationVersion: '0.23'
 apis:
