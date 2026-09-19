@@ -34,6 +34,10 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/factory-i-o.png
 tags:
   - Industrial Automation
+  - Simulation
+  - Software Simulation
+tags_raw:
+  - Industrial Automation
   - Simulations
   - Software Simulation
 url: >-
@@ -52,6 +56,10 @@ apis:
     for success, 4xx for client errors, and 5xx for errors in Factory I/O.
   humanURL: https://docs.factoryio.com/manual/web-api/
   tags:
+  - Industrial Automation
+  - Simulation
+  - Software Simulation
+  tags_raw:
   - Industrial Automation
   - Simulations
   - Software Simulation
