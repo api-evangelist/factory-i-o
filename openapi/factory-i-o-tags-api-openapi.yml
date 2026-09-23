@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: FACTORY I/O Web Tag Values Tags API
+  title: FACTORY I/O Web Tags API
   description: 'The web server in Factory I/O exposes a REST API for reading and writing simulation tag values from external clients. The web server uses conventional HTTP response codes to indicate success or failure: 2xx for success, 4xx for client errors, and 5xx for errors in Factory I/O. By default the server listens on port 7410. Requires the Ultimate Edition with the web server activated via the app.web_server = True console command.'
   version: '1.0'
   contact:
