@@ -250,16 +250,6 @@ components:
           example: Tag with id '...' not found.
       required:
       - id
-    ErrorResponse:
-      type: object
-      description: Top-level error response from the Factory I/O web server.
-      properties:
-        code:
-          type: integer
-          description: HTTP error code.
-        error:
-          type: string
-          description: Human-readable error message.
     TagValueInput:
       type: object
       description: Input object for setting a tag value, identified by id.
@@ -277,6 +267,16 @@ components:
       required:
       - id
       - value
+    ErrorResponse:
+      type: object
+      description: Top-level error response from the Factory I/O web server.
+      properties:
+        code:
+          type: integer
+          description: HTTP error code.
+        error:
+          type: string
+          description: Human-readable error message.
 externalDocs:
   description: Factory I/O Web API Documentation
   url: https://docs.factoryio.com/manual/web-api/

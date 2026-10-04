@@ -171,16 +171,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
 components:
   schemas:
-    ErrorResponse:
-      type: object
-      description: Top-level error response from the Factory I/O web server.
-      properties:
-        code:
-          type: integer
-          description: HTTP error code.
-        error:
-          type: string
-          description: Human-readable error message.
     Tag:
       type: object
       description: Object representing a tag in the Factory I/O scene.
@@ -248,6 +238,16 @@ components:
       - shortCircuit
       - isForced
       - forcedValue
+    ErrorResponse:
+      type: object
+      description: Top-level error response from the Factory I/O web server.
+      properties:
+        code:
+          type: integer
+          description: HTTP error code.
+        error:
+          type: string
+          description: Human-readable error message.
 externalDocs:
   description: Factory I/O Web API Documentation
   url: https://docs.factoryio.com/manual/web-api/
