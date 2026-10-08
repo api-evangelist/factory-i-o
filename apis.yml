@@ -99,6 +99,12 @@ apis:
   - type: OpenAPI
     url: openapi/factory-i-o-tags-api-openapi.yml
 common:
+  - type: Plans
+    url: plans/factory-i-o-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/factory-i-o-rate-limits.yml
+  - type: FinOps
+    url: finops/factory-i-o-finops.yml
   - type: AgenticAccess
     url: agentic-access/factory-i-o-agentic-access.yml
   - type: DomainSecurity
