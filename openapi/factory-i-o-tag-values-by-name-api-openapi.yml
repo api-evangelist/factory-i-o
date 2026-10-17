@@ -210,6 +210,22 @@ paths:
           description: Factory I/O server error
 components:
   schemas:
+    TagValueByNameInput:
+      type: object
+      description: Input object for setting a tag value, identified by name.
+      properties:
+        name:
+          type: string
+          description: Name of the tag.
+          example: Front conveyor
+        value:
+          description: Value to set (boolean for Bit, integer for Int, number for Float).
+          oneOf:
+          - type: boolean
+          - type: number
+      required:
+      - name
+      - value
     TagValueByNameResult:
       type: object
       description: Result for a single tag value operation, identified by name.
@@ -231,22 +247,6 @@ components:
           description: Error message (present on per-item error).
       required:
       - name
-    TagValueByNameInput:
-      type: object
-      description: Input object for setting a tag value, identified by name.
-      properties:
-        name:
-          type: string
-          description: Name of the tag.
-          example: Front conveyor
-        value:
-          description: Value to set (boolean for Bit, integer for Int, number for Float).
-          oneOf:
-          - type: boolean
-          - type: number
-      required:
-      - name
-      - value
 externalDocs:
   description: Factory I/O Web API Documentation
   url: https://docs.factoryio.com/manual/web-api/
